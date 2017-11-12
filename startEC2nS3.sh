@@ -28,9 +28,9 @@ PUBLICNAME=$(aws ec2 describe-instances --instance-ids $INSTANCEID \
 
 echo "$INSTANCEID is accepting SSH connections under $PUBLICNAME"
 echo "ssh -i mykey.pem ec2-user@$PUBLICNAME"
-read -p "Press [Enter] key to terminate $INSTANCEID ..."
-aws ec2 terminate-instances --instance-ids $INSTANCEID
-echo "terminating $INSTANCEID ..."
-aws ec2 wait instance-terminated --instance-ids $INSTANCEID
-aws ec2 delete-security-group --group-id $SGID
+
+echo ".... .... .... .... .... .... .... ...."
+read -r -p "Enter the bucket name: " bname
+echo "$bname"
+aws s3api create-bucket --bucket $bname
 
